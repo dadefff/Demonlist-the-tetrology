@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Demon List</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#0d1117;
+    color:white;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    height:72px;
+    background:#111827;
+    border-bottom:1px solid #1f2937;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:800;
+    color:#60a5fa;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+}
+
+.nav-links a{
+    color:#cbd5e1;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* =========================
+   PAGES SYSTEM
+========================= */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.hero{
+    padding:60px 40px 30px;
+    background:linear-gradient(180deg, rgba(59,130,246,0.12), transparent);
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    max-width:700px;
+    line-height:1.6;
+}
+
+.search-wrapper{
+    margin-top:25px;
+}
+
+.search{
+    width:100%;
+    max-width:500px;
+    height:50px;
+
+    border-radius:12px;
+    border:1px solid #1f2937;
+    background:#111827;
+
+    color:white;
+    padding:0 16px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.main{
+    padding:40px;
+}
+
+/* =========================
+   LEVEL LIST
+========================= */
+
+.level-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+/* LEVEL CARD */
+
+.level-card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:16px;
+
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.level-card:hover{
+    transform:translateY(-2px);
+    border-color:#3b82f6;
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.level-image{
+    width:120px;
+    height:68px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.rank{
+    width:50px;
+    height:50px;
+    background:#1d4ed8;
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:800;
+}
+
+.level-info h2{
+    font-size:20px;
+}
+
+.level-info p{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.right{
+    text-align:right;
+}
+
+.difficulty{
+    color:#ef4444;
+    font-weight:700;
+}
+
+.points{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+/* =========================
+   RECORD PAGE
+========================= */
+
+.record-container{
+    padding:40px;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-bottom:20px;
+
+    background:#2563eb;
+    padding:10px 16px;
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+.record-card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:16px;
+
+    padding:24px;
+}
+
+.record-title{
+    font-size:34px;
+    font-weight:800;
+}
+
+.record-sub{
+    color:#94a3b8;
+    margin-top:6px;
+}
+
+.record-grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.box{
+    background:#0f172a;
+    padding:16px;
+    border-radius:12px;
+}
+
+.box-title{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.box-value{
+    font-size:18px;
+    font-weight:700;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding:30px;
+    text-align:center;
+    color:#64748b;
+    border-top:1px solid #1f2937;
+    margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">DEMONLIST</div>
+
+    <div class="nav-links">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('main')">Main List</a>
+        <a onclick="showPage('records')">Records</a>
+        <a onclick="showPage('players')">Players</a>
+    </div>
+
+</nav>
+
+<!-- =========================
+     HOME PAGE
+========================= -->
+
+<div id="home" class="page active">
+
+    <div class="hero">
+
+        <h1>Ultimate Demon List</h1>
+
+        <p>
+            A Geometry Dash fan demon list inspired by Pointercrate.
+            Click Main List to explore levels and records.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     MAIN LIST PAGE
+========================= -->
+
+<div id="main" class="page">
+
+    <div class="hero" style="padding-bottom:10px;">
+
+        <h1>Main List</h1>
+
+        <p>Search and browse all demon levels.</p>
+
+        <div class="search-wrapper">
+            <input id="search" class="search" placeholder="Search levels...">
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div id="list" class="level-list"></div>
+    </div>
+
+</div>
+
+<!-- =========================
+     RECORDS PAGE
+========================= -->
+
+<div id="records" class="page">
+
+    <div class="record-container">
+
+        <div class="back-btn" onclick="showPage('main')">
+            ← Back
+        </div>
+
+        <div id="recordContent"></div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     PLAYERS PAGE (PLACEHOLDER)
+========================= -->
+
+<div id="players" class="page">
+
+    <div class="main">
+        <h2>Players</h2>
+        <p style="color:#94a3b8;margin-top:10px;">
+            w.i.p
+        </p>
+    </div>
+
+</div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer">
+    © 2026 Demon List — Fan Project
+</div>
+<script>
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+function showPage(id){
+
+    document.querySelectorAll(".page")
+        .forEach(p => p.classList.remove("active"));
+
+    document.getElementById(id)
+        .classList.add("active");
+}
+
+/* =========================
+   LEVEL DATA (ALL YOUR LEVELS)
+========================= */
+
+const demons = [
+
+{
+    id:"stalemate",
+    rank:1,
+    name:"Stalemate",
+    creator:"Nox",
+    difficulty:"Insane Demon",
+    points:"500 points",
+    image:"Stalematepng.png",
+    records:[
+        {player:"PotherSouls", progress:"100%"}
+    ]
+},
+
+{
+    id:"futurefunk",
+    rank:2,
+    name:"Future Funk",
+    creator:"JonathanGD",
+    difficulty:"Hard Demon",
+    points:"475 points",
+    image:"https://pbs.twimg.com/media/GzrFJJVbEAAPjsD.jpg",
+    records:[
+	{player:"PotherSouls", progress:"100%"},
+	{player:"Dadefff", progress:"99%"}
+	]
+},
+
+{
+    id:"jawbreaker",
+    rank:3,
+    name:"Jawbreaker",
+    creator:"ZenthicAlpha",
+    difficulty:"Hard Demon",
+    points:"450 points",
+    image:"https://picsum.photos/300/170?random=3",
+    records:[]
+},
+
+{
+    id:"ninecircles",
+    rank:4,
+    name:"Nine Circles",
+    creator:"Zobros",
+    difficulty:"Hard Demon",
+    points:"425 points",
+    image:"https://picsum.photos/300/170?random=4",
+    records:[]
+},
+
+{
+    id:"mountainking",
+    rank:5,
+    name:"Mountain King",
+    creator:"FunnyGame",
+    difficulty:"Medium Demon",
+    points:"400 points",
+    image:"https://picsum.photos/300/170?random=5",
+    records:[]
+},
+
+{
+    id:"trollmadness",
+    rank:6,
+    name:"Troll Madness",
+    creator:"Zyphur",
+    difficulty:"Hard Demon",
+    points:"375 points",
+    image:"https://picsum.photos/300/170?random=6",
+    records:[]
+},
+
+{
+    id:"hell",
+    rank:7,
+    name:"HeLL",
+    creator:"Serponge",
+    difficulty:"Extreme Demon",
+    points:"350 points",
+    image:"https://picsum.photos/300/170?random=7",
+    records:[]
+},
+
+{
+    id:"amethyst",
+    rank:8,
+    name:"Amethyst",
+    creator:"ZioGDVN",
+    difficulty:"Medium Demon",
+    points:"325 points",
+    image:"https://picsum.photos/300/170?random=8",
+    records:[]
+},
+
+{
+    id:"sakupenegg",
+    rank:9,
+    name:"Sakupen Egg",
+    creator:"Sivlol",
+    difficulty:"Medium Demon",
+    points:"300 points",
+    image:"https://picsum.photos/300/170?random=9",
+    records:[]
+},
+
+{
+    id:"cyclesv2s",
+    rank:10,
+    name:"Cycles V2 S",
+    creator:"Seohyunho",
+    difficulty:"Medium Demon",
+    points:"275 points",
+    image:"https://picsum.photos/300/170?random=10",
+    records:[]
+},
+
+{
+    id:"potal",
+    rank:11,
+    name:"Potal",
+    creator:"Sillow",
+    difficulty:"Medium Demon",
+    points:"250 points",
+    image:"https://picsum.photos/300/170?random=11",
+    records:[]
+},
+
+{
+    id:"mechanicalshowdown",
+    rank:12,
+    name:"Mechanical Showdown",
+    creator:"Tongii",
+    difficulty:"Medium Demon",
+    points:"225 points",
+    image:"https://picsum.photos/300/170?random=12",
+    records:[]
+},
+
+{
+    id:"verity",
+    rank:13,
+    name:"VeritY",
+    creator:"Serponge",
+    difficulty:"Medium Demon",
+    points:"200 points",
+    image:"https://picsum.photos/300/170?random=13",
+    records:[]
+},
+
+{
+    id:"livingopen",
+    rank:14,
+    name:"Living Open",
+    creator:"MaFFaKa",
+    difficulty:"Medium Demon",
+    points:"175 points",
+    image:"https://picsum.photos/300/170?random=14",
+    records:[]
+},
+
+{
+    id:"hellofitzgerald",
+    rank:15,
+    name:"Hello Fitzgerald",
+    creator:"Vortrox",
+    difficulty:"Medium Demon",
+    points:"150 points",
+    image:"https://picsum.photos/300/170?random=15",
+    records:[]
+},
+
+{
+    id:"skeletalshenanigans",
+    rank:16,
+    name:"Skeletal Shenanigans",
+    creator:"YoReid",
+    difficulty:"Medium Demon",
+    points:"125 points",
+    image:"https://picsum.photos/300/170?random=16",
+    records:[]
+},
+
+{
+    id:"b",
+    rank:17,
+    name:"B",
+    creator:"motleyorc",
+    difficulty:"Medium Demon",
+    points:"100 points",
+    image:"https://picsum.photos/300/170?random=17",
+    records:[]
+}
+
+];
+
+/* =========================
+   RENDER LIST
+========================= */
+
+const list = document.getElementById("list");
+
+function render(levels){
+
+    list.innerHTML = "";
+
+    levels.forEach(l => {
+
+        list.innerHTML += `
+        <div class="level-card" onclick="openRecord('${l.id}')">
+
+            <div class="left">
+
+                <img class="level-image" src="${l.image}">
+
+                <div class="rank">#${l.rank}</div>
+
+                <div class="level-info">
+                    <h2>${l.name}</h2>
+                    <p>${l.creator}</p>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="difficulty">${l.difficulty}</div>
+                <div class="points">${l.points}</div>
+            </div>
+
+        </div>
+        `;
+    });
+}
+
+/* =========================
+   OPEN RECORD PAGE
+========================= */
+
+function openRecord(id){
+
+    const level = demons.find(d => d.id === id);
+
+    document.getElementById("recordContent").innerHTML = `
+
+        <div class="record-card">
+
+            <div class="record-title">${level.name}</div>
+            <div class="record-sub">by ${level.creator}</div>
+
+            <div class="record-grid">
+
+                <div class="box">
+                    <div class="box-title">Difficulty</div>
+                    <div class="box-value">${level.difficulty}</div>
+                </div>
+
+                <div class="box">
+                    <div class="box-title">Points</div>
+                    <div class="box-value">${level.points}</div>
+                </div>
+
+                <div class="box">
+                    <div class="box-title">Records</div>
+                    <div class="box-value">${level.records.length}</div>
+                </div>
+
+            </div>
+
+            <div class="record-card" style="margin-top:20px;">
+
+                <div class="box-title">Records List</div>
+
+                ${
+                    level.records.length === 0
+                    ? "<p style='color:#94a3b8;margin-top:10px;'>No records yet</p>"
+                    : level.records.map(r => `
+                        <p style="margin-top:10px;">
+                            ${r.player} — ${r.progress}
+                        </p>
+                    `).join("")
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+    showPage("records");
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+document.getElementById("search").addEventListener("input", (e)=>{
+
+    const val = e.target.value.toLowerCase();
+
+    const filtered = demons.filter(d =>
+        d.name.toLowerCase().includes(val)
+    );
+
+    render(filtered);
+});
+
+/* INIT */
+
+render(demons);
+
+</script>
+
+</body>
+</html>
