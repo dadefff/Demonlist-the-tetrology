@@ -405,12 +405,25 @@ function showPage(id){
 const demons = [
 
 {
-    id:"stalemate",
+    id:"deathnote",
     rank:1,
+    name:"Death Note",
+    creator:"Ruf",
+    difficulty:"Insane Demon",
+    points:"500 points",
+    image:"DeathNotepng.png",
+    records:[
+        {player:"PotherSouls", progress:"100%"}
+    ]
+},
+
+{
+    id:"stalemate",
+    rank:2,
     name:"Stalemate",
     creator:"Nox",
     difficulty:"Insane Demon",
-    points:"500 points",
+    points:"475 points",
     image:"Stalematepng.png",
     records:[
         {player:"PotherSouls", progress:"100%"}
@@ -419,11 +432,11 @@ const demons = [
 
 {
     id:"futurefunk",
-    rank:2,
+    rank:3,
     name:"Future Funk",
     creator:"JonathanGD",
     difficulty:"Hard Demon",
-    points:"475 points",
+    points:"450 points",
     image:"https://pbs.twimg.com/media/GzrFJJVbEAAPjsD.jpg",
     records:[
 	{player:"PotherSouls", progress:"100%"},
@@ -433,11 +446,11 @@ const demons = [
 
 {
     id:"jawbreaker",
-    rank:3,
+    rank:4,
     name:"Jawbreaker",
     creator:"ZenthicAlpha",
     difficulty:"Hard Demon",
-    points:"450 points",
+    points:"425 points",
     image:"https://picsum.photos/300/170?random=3",
     records:[
         {player:"Dadefff", progress:"100%"}
@@ -447,11 +460,11 @@ const demons = [
 
 {
     id:"crazy",
-    rank:4,
+    rank:5,
     name:"CraZy",
     creator:"DavJT",
     difficulty:"Hard Demon",
-    points:"425 points",
+    points:"400 points",
     image:"https://picsum.photos/300/170?random=3",
     records:[
         {player:"PotherSouls", progress:"100%"}
@@ -460,11 +473,11 @@ const demons = [
 
 {
     id:"ninecircles",
-    rank:5,
+    rank:6,
     name:"Nine Circles",
     creator:"Zobros",
     difficulty:"Hard Demon",
-    points:"400 points",
+    points:"375 points",
     image:"https://picsum.photos/300/170?random=4",
     records:[
         {player:"Dadefff", progress:"100%"},
@@ -474,11 +487,11 @@ const demons = [
 
 {
     id:"mountainking",
-    rank:6,
+    rank:7,
     name:"Mountain King",
     creator:"FunnyGame",
     difficulty:"Medium Demon",
-    points:"375 points",
+    points:"350 points",
     image:"https://picsum.photos/300/170?random=5",
     records:[
 	{player:"Dadefff", progress:"100%"}
@@ -487,11 +500,11 @@ const demons = [
 
 {
     id:"trollmadness",
-    rank:7,
+    rank:8,
     name:"Troll Madness",
     creator:"Zyphur",
     difficulty:"Hard Demon",
-    points:"350 points",
+    points:"325 points",
     image:"https://picsum.photos/300/170?random=6",
     records:[
 	{player:"Dadefff", progress:"100%"}	,
@@ -501,11 +514,11 @@ const demons = [
 
 {
     id:"hell",
-    rank:8,
+    rank:9,
     name:"HeLL",
     creator:"Serponge",
     difficulty:"Medium Demon",
-    points:"325 points",
+    points:"300 points",
     image:"https://picsum.photos/300/170?random=7",
     records:[
 	{player:"PotherSouls", progress:"100%"}
@@ -514,11 +527,11 @@ const demons = [
 
 {
     id:"amethyst",
-    rank:9,
+    rank:10,
     name:"Amethyst",
     creator:"ZioGDVN",
     difficulty:"Medium Demon",
-    points:"300 points",
+    points:"275 points",
     image:"https://picsum.photos/300/170?random=8",
     records:[
 	{player:"Dadefff", progress:"100%"}
@@ -527,11 +540,11 @@ const demons = [
 
 {
     id:"sakupenegg",
-    rank:10,
+    rank:11,
     name:"Sakupen Egg",
     creator:"Sivlol",
     difficulty:"Medium Demon",
-    points:"275 points",
+    points:"250 points",
     image:"https://picsum.photos/300/170?random=9",
     records:[
 	{player:"PotherSouls", progress:"100%"},
@@ -541,11 +554,11 @@ const demons = [
 
 {
     id:"cyclesv2s",
-    rank:11,
+    rank:12,
     name:"Cycles V2 S",
     creator:"Seohyunho",
     difficulty:"Medium Demon",
-    points:"250 points",
+    points:"225 points",
     image:"https://picsum.photos/300/170?random=10",
     records:[
 	{player:"PotherSouls", progress:"100%"}
@@ -554,11 +567,11 @@ const demons = [
 
 {
     id:"potal",
-    rank:12,
+    rank:13,
     name:"Potal",
     creator:"Sillow",
     difficulty:"Medium Demon",
-    points:"225 points",
+    points:"200 points",
     image:"https://picsum.photos/300/170?random=11",
     records:[
 	{player:"Dadefff", progress:"100%"}
@@ -567,11 +580,11 @@ const demons = [
 
 {
     id:"mechanicalshowdown",
-    rank:13,
+    rank:14,
     name:"Mechanical Showdown",
     creator:"Tongii",
     difficulty:"Medium Demon",
-    points:"200 points",
+    points:"175 points",
     image:"https://picsum.photos/300/170?random=12",
     records:[
 	{player:"PotherSouls", progress:"100%"}
@@ -580,11 +593,11 @@ const demons = [
 
 {
     id:"verity",
-    rank:14,
+    rank:15,
     name:"VeritY",
     creator:"Serponge",
     difficulty:"Medium Demon",
-    points:"175 points",
+    points:"150 points",
     image:"https://picsum.photos/300/170?random=13",
     records:[
 	{player:"PotherSouls", progress:"100%"}
@@ -593,11 +606,11 @@ const demons = [
 
 {
     id:"livingopen",
-    rank:15,
+    rank:16,
     name:"Living Open",
     creator:"MaFFaKa",
     difficulty:"Medium Demon",
-    points:"150 points",
+    points:"125 points",
     image:"https://picsum.photos/300/170?random=14",
     records:[
 	{player:"Dadefff", progress:"100%"}
@@ -606,11 +619,11 @@ const demons = [
 
 {
     id:"hellofitzgerald",
-    rank:16,
+    rank:17,
     name:"Hello Fitzgerald",
     creator:"Vortrox",
     difficulty:"Medium Demon",
-    points:"125 points",
+    points:"100 points",
     image:"https://picsum.photos/300/170?random=15",
     records:[
 	{player:"Dadefff", progress:"100%"}
@@ -619,11 +632,11 @@ const demons = [
 
 {
     id:"skeletalshenanigans",
-    rank:17,
+    rank:18,
     name:"Skeletal Shenanigans",
     creator:"YoReid",
     difficulty:"Medium Demon",
-    points:"100 points",
+    points:"75 points",
     image:"https://picsum.photos/300/170?random=16",
     records:[
 	{player:"PotherSouls", progress:"100%"},
@@ -634,11 +647,11 @@ const demons = [
 
 {
     id:"b",
-    rank:18,
+    rank:19,
     name:"B",
     creator:"motleyorc",
     difficulty:"Medium Demon",
-    points:"75 points",
+    points:"50 points",
     image:"https://picsum.photos/300/170?random=17",
     records:[
 	{player:"PotherSouls", progress:"100%"},
